@@ -1,0 +1,16 @@
+# IDEA
+#####
+.idea/
+
+#JAVA
+#####
+target/
+out/
+
+#TEMPORALES
+###########
+*.tmp
+
+#ENTORNO VIRT.
+###########
+.env
