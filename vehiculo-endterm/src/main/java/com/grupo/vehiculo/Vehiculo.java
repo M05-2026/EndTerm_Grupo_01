@@ -6,9 +6,8 @@ public class Vehiculo {
     private double precio;
     private boolean encendido;
     private int velocidadActual;
-    private int velocidadMaxima;
 
-    public Vehiculo(String marca, String modelo, String matricula, String color, double precio, int velocidadMaxima) {
+    public Vehiculo(String marca, String modelo, String matricula, String color, double precio) {
         this.marca = marca;
         this.modelo = modelo;
         this.matricula = matricula;
@@ -16,21 +15,20 @@ public class Vehiculo {
         this.precio = precio;
         this.encendido = false;
         this.velocidadActual = 0;
-        this.velocidadMaxima = velocidadMaxima;
     }
 
-    public Acelerar(){
+    public void frenar(int frenando){
 
         if (!encendido) {
-            System.out.println("El vehículo está apagado. No se puede acelerar.");
+            System.out.println("El vehículo está apagado. No es necesario frenar, pon el freno de mano.");
             return;
         }
 
-        int nuevaVelocidad = velocidadActual + incremento;
+        int nuevaVelocidad = velocidadActual - frenando;
 
-        if (nuevaVelocidad > velocidadMaxima) {
-            velocidadActual = velocidadMaxima;
-            System.out.println("Velocidad máxima: " + velocidadMaxima + " km/h");
+        if (nuevaVelocidad < 0) {
+            velocidadActual = 0;
+            System.out.println("El vehiculo se ha detenido");
         } else {
             velocidadActual = nuevaVelocidad;
             System.out.println("Velocidad actual: " + velocidadActual + " km/h");
