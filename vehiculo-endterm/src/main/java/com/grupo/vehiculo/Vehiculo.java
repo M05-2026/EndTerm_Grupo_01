@@ -1,3 +1,5 @@
+package com.grupo.vehiculo;
+
 public class Vehiculo {
     private String marca;
     private String modelo;
@@ -17,6 +19,18 @@ public class Vehiculo {
         this.velocidadActual = 0;
     }
 
+    //Metodo encender
+    public void encenderCoche() {
+
+        if (!encendido) {
+            System.out.println("Enciende el motor por favor");
+            this.encendido = true;
+        } else {
+            System.out.println("Has encendido el coche, dale!");
+        }
+    }
+
+    //Metodo frenar
     public void frenar(int frenando){
 
         if (!encendido) {
@@ -33,5 +47,24 @@ public class Vehiculo {
             velocidadActual = nuevaVelocidad;
             System.out.println("Velocidad actual: " + velocidadActual + " km/h");
         }
+    }
+
+
+// GETTER Y SETTER de encendido y velocidadActual
+
+    public boolean isEncendido() {
+        return encendido;
+    }
+
+    public void setEncendido(boolean encendido) {
+        this.encendido = encendido;
+    }
+
+    public int getVelocidadActual() {
+        return velocidadActual;
+    }
+
+    public void setVelocidadActual(int velocidadActual) {
+        this.velocidadActual = velocidadActual;
     }
 }
