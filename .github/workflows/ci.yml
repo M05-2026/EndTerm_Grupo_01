@@ -1,0 +1,25 @@
+name: Java CI  # Este va a ser el nombre que he elegido para el workflo continous integration
+
+on: #Chuleta para el equipo. Cuándo se ejecuta
+  pull_request:  # Esto nos hace que cuando se haga un PR a Main, salte.
+    branches: [ "main" ]
+  push:
+    branches: [ "main", "feature/**", "docs/**" ] 
+
+jobs: # Las tareas que quiero que ejecute
+  test:
+    runs-on: ubuntu-latest # Maquina virtual para los test que ejecutara Githb
+
+    steps: # pasos del proceso. A revisar si algo me he colado.
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: maven
+
+      - name: Ejecutar tests con Maven
+        run: mvn test # El test en maven que quiero que se ejecute
