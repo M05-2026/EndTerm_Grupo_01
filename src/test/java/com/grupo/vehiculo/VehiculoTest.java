@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class VehiculoTest {
-
-  // Actualización 1: Hago los Test para Encender (que ya lo hemos puesto para que sea más real) y para frenar.
+    // Creo los Test
     @Test
     void elVehiculoDebeEmpezarApagadoYConVelocidadCero() {
         Vehiculo v = new Vehiculo("Seat", "Ibiza", "1234ABC", "Rojo", 15000);
