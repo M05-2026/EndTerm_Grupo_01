@@ -31,23 +31,27 @@ public class Vehiculo {
     }
 
     //Metodo frenar
-    public void frenar(int frenando){
+    public void frenar(int frenando) {
 
-        if (!encendido) {
-            System.out.println("El vehículo está apagado. No es necesario frenar, pon el freno de mano.");
-            return;
-        }
-
-        int nuevaVelocidad = velocidadActual - frenando;
-
-        if (nuevaVelocidad < 0) {
-            velocidadActual = 0;
-            System.out.println("El vehiculo se ha detenido");
-        } else {
-            velocidadActual = nuevaVelocidad;
-            System.out.println("Velocidad actual: " + velocidadActual + " km/h");
-        }
+    if (!encendido) {
+        System.out.println("El vehículo está apagado. No es necesario frenar, pon el freno de mano.");
+        return;
     }
+
+    if (frenando <= 0) {
+        throw new IllegalArgumentException("La cantidad para frenar debe ser mayor que 0");
+    }
+
+    int nuevaVelocidad = velocidadActual - frenando;
+
+    if (nuevaVelocidad < 0) {
+        velocidadActual = 0;
+        System.out.println("El vehiculo se ha detenido");
+    } else {
+        velocidadActual = nuevaVelocidad;
+        System.out.println("Velocidad actual: " + velocidadActual + " km/h");
+    }
+}
 
 
 // GETTER Y SETTER de encendido y velocidadActual
