@@ -8,8 +8,9 @@ public class Vehiculo {
     private double precio;
     private boolean encendido;
     private int velocidadActual;
+    private int velocidadMaxima;
 
-    public Vehiculo(String marca, String modelo, String matricula, String color, double precio) {
+    public Vehiculo(String marca, String modelo, String matricula, String color, double precio, int velocidadMaxima) {
         this.marca = marca;
         this.modelo = modelo;
         this.matricula = matricula;
@@ -17,6 +18,7 @@ public class Vehiculo {
         this.precio = precio;
         this.encendido = false;
         this.velocidadActual = 0;
+	this.velocidadMaxima = velocidadMaxima;
     }
 
     //Metodo encender
@@ -53,6 +55,27 @@ public class Vehiculo {
     }
 }
 
+    public void acelerar(int incremento) {
+
+	if (!encendido) {
+        	System.out.println("El vehículo está apagado. No se puede acelerar.");
+        	return;
+    	}
+
+    	if (incremento <= 0) {
+        	throw new IllegalArgumentException("El incremento debe ser positivo.");
+    	}
+
+    	int nuevaVelocidad = velocidadActual + incremento;
+
+    	if (nuevaVelocidad > velocidadMaxima) {
+        	velocidadActual = velocidadMaxima;
+    	} else {
+        	velocidadActual = nuevaVelocidad;
+    	}
+
+    	System.out.println("Velocidad actual: " + velocidadActual + " km/h");
+    }
 
 // GETTER Y SETTER de encendido y velocidadActual
 
